@@ -29,7 +29,9 @@ class FileReaderTest {
         List<String> list = Arrays.asList(
                 "yes - tak",
                 "where - gdzie",
-                "A"
+                "A",
+                "empty",
+                "12345"
         );
 
         List<String> expectedList = Arrays.asList(
@@ -41,5 +43,25 @@ class FileReaderTest {
         outputList = FileReader.sortList(list);
 
         Assertions.assertEquals(expectedList, outputList);
+    }
+
+    @Test
+    void randomWord() {
+        List<String> list = Arrays.asList(
+                "element",
+                "element2",
+                "element3"
+        );
+
+        String word = FileReader.randomWord(list);
+
+        Assertions.assertTrue(list.contains(word));
+    }
+
+    @Test
+    void randomWordWithEmptyList() {
+        final List<String> list = Arrays.asList();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> FileReader.randomWord(list));
     }
 }

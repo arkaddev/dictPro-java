@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FileReader {
@@ -37,7 +38,18 @@ public class FileReader {
                 sortedList.add(listToSort.get(i));
             }
         }
-        System.out.println("Lista zawiera: " + sortedList.size() + " wyrazow");
+        System.out.println("Posortowana lista zawiera: " + sortedList.size() + " wyrazow");
         return sortedList;
+    }
+
+    public static String randomWord(List<String> list) {
+        if(list.isEmpty()){
+            throw new IllegalArgumentException("Lista nie zawiera elementow");
+        }
+
+        Random random = new Random();
+        int index = random.nextInt(list.size());
+
+        return list.get(index);
     }
 }
