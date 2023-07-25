@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileReader {
-    public static List<String> readFile() {
-
-        String nameOfFile = "slowa.txt";
+    public static List<String> readFile(String nameOfFile) {
 
         List<String> listWithWords = new ArrayList<>();
 
