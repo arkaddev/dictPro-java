@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Word {
 
     static int[] goodBadAnswers = new int[2];
+
     public static String[] splitWord(String word) {
 
         String[] result = new String[2];
@@ -14,7 +15,6 @@ public class Word {
 
 
     public static String checkAnswer(String[] separatedWord) {
-
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj znaczenie slowa: " + separatedWord[0]);
@@ -29,8 +29,8 @@ public class Word {
 
     }
 
-    public static String results(){
+    public static String results(int[] answers) {
 
-        return goodBadAnswers[0] + " - odpowiedzi poprawne\n" + goodBadAnswers[1] + " - odpowiedzi bledne";
+        return answers[0] + " - odpowiedzi poprawne\n" + answers[1] + " - odpowiedzi bledne";
     }
 }

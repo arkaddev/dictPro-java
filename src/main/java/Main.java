@@ -19,12 +19,12 @@ public class Main {
 
                 for (int i = 0; i < 10; i++) {
                     String randomWord = FileReader.randomWord(sortedList);
-                    String[] meaning = Word.splitWord(randomWord);
+                    String[] arrayOfWords = Word.splitWord(randomWord);
 
-                    System.out.println(Word.checkAnswer(meaning));
+                    System.out.println(Word.checkAnswer(arrayOfWords));
                 }
 
-                System.out.println(Word.results());
+                System.out.println(Word.results(Word.goodBadAnswers));
 
                 break;
             case 2:
