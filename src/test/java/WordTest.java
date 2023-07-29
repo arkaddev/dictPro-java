@@ -72,6 +72,5 @@ class WordTest {
         String expectedOutput = "7 - odpowiedzi poprawne\n3 - odpowiedzi bledne";
 
         assertEquals(expectedOutput, output);
-
     }
 }

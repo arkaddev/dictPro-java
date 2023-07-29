@@ -43,7 +43,7 @@ public class FileReader {
     }
 
     public static String randomWord(List<String> list) {
-        if(list.isEmpty()){
+        if (list.isEmpty()) {
             throw new IllegalArgumentException("Lista nie zawiera elementow");
         }
 
@@ -52,4 +52,24 @@ public class FileReader {
 
         return list.get(index);
     }
+
+    public static List<String> openFileToSave(String nameOfFile) throws FileNotFoundException {
+        List<String> statisticsList = new ArrayList<>();
+
+        try {
+            File resultsFile = new File(nameOfFile);
+            Scanner readResults = new Scanner(resultsFile);
+            while (readResults.hasNextLine()) {
+                String userData = readResults.nextLine();
+                statisticsList.add(userData);
+            }
+            readResults.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie znaleziono pliku.");
+           throw new FileNotFoundException();
+        }
+        return statisticsList;
+    }
+
+
 }
