@@ -1,8 +1,9 @@
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Witaj w programie wordsApp 0.1");
 
         System.out.println("-----------------");
@@ -24,8 +25,9 @@ public class Main {
                     System.out.println(Word.checkAnswer(arrayOfWords));
                 }
 
-                System.out.println(Word.results(Word.goodBadAnswers));
+                // System.out.println(Word.results(Word.goodBadAnswers));
 
+                FileReader.saveListToFile("results", FileReader.openFileToSave("results"));
                 break;
             case 2:
                 break;

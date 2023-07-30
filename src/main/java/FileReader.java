@@ -1,11 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class FileReader {
+
+
     public static List<String> readFile(String nameOfFile) {
 
         List<String> listWithWords = new ArrayList<>();
@@ -66,9 +72,33 @@ public class FileReader {
             readResults.close();
         } catch (FileNotFoundException e) {
             System.out.println("Nie znaleziono pliku.");
-           throw new FileNotFoundException();
+            throw new FileNotFoundException();
         }
         return statisticsList;
+    }
+
+    public static void saveListToFile(String nameOfFile, List<String> statisticsList) {
+        try {
+            FileWriter saveFile = new FileWriter(nameOfFile);
+            for (int i = 0; i < statisticsList.size(); i++) {
+                String name = statisticsList.get(i);
+                saveFile.write(name + "\n");
+            }
+
+            saveFile.write(Word.results(Word.goodBadAnswers));
+            saveFile.close();
+            System.out.println("Wynik zostal zapisany");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void getDateAndTime() {
+        LocalTime time = LocalTime.now();
+        System.out.println(time);
+        LocalDate date = LocalDate.now();
+        System.out.println(date);
     }
 
 
