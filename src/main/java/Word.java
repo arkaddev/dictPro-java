@@ -31,6 +31,6 @@ public class Word {
 
     public static String results(int[] answers) {
 
-        return answers[0] + " - odpowiedzi poprawne\n" + answers[1] + " - odpowiedzi bledne";
+        return answers[0] + " - odpowiedzi poprawne " + answers[1] + " - odpowiedzi bledne";
     }
 }

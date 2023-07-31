@@ -94,11 +94,11 @@ public class FileReader {
         }
     }
 
-    public static void getDateAndTime() {
+    public static String getDateAndTime() {
         LocalTime time = LocalTime.now();
-        System.out.println(time);
         LocalDate date = LocalDate.now();
-        System.out.println(date);
+
+        return date + " " + time;
     }
 
 
