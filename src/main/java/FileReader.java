@@ -2,12 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileReader {
 
@@ -85,7 +83,7 @@ public class FileReader {
                 saveFile.write(name + "\n");
             }
 
-            saveFile.write(Word.results(Word.goodBadAnswers));
+            saveFile.write(Word.results(Word.goodBadAnswers) + getDateAndTime());
             saveFile.close();
             System.out.println("Wynik zostal zapisany");
 
@@ -95,10 +93,10 @@ public class FileReader {
     }
 
     public static String getDateAndTime() {
-        LocalTime time = LocalTime.now();
-        LocalDate date = LocalDate.now();
+       Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
-        return date + " " + time;
+        return simpleDateFormat.format(date);
     }
 
 
