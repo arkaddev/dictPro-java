@@ -68,8 +68,8 @@ class WordTest {
         goodBadAnswers[0] = 7;
         goodBadAnswers[1] = 3;
 
-        String output = Word.results(goodBadAnswers);
-        String expectedOutput = "7 - odpowiedzi poprawne\n3 - odpowiedzi bledne";
+        int output = Word.results(goodBadAnswers);
+        int expectedOutput = 70;
 
         assertEquals(expectedOutput, output);
     }

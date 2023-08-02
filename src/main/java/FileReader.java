@@ -83,7 +83,7 @@ public class FileReader {
                 saveFile.write(name + "\n");
             }
 
-            saveFile.write(Word.results(Word.goodBadAnswers) + getDateAndTime());
+            saveFile.write(Word.results(Word.goodBadAnswers) + " " + getDateAndTime());
             saveFile.close();
             System.out.println("Wynik zostal zapisany");
 

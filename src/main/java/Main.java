@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    final static int amountOfQuestion = 10;
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Witaj w programie wordsApp 0.1");
 
@@ -18,7 +20,7 @@ public class Main {
             case 1:
                 List<String> sortedList = FileReader.sortList(FileReader.readFile("slowa.txt"));
 
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < amountOfQuestion; i++) {
                     String randomWord = FileReader.randomWord(sortedList);
                     String[] arrayOfWords = Word.splitWord(randomWord);
 
