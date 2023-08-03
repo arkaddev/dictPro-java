@@ -8,6 +8,9 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Witaj w programie wordsApp 0.1");
 
+        Result result = new Result();
+
+        System.out.println(result.sortObjectList(result.resultsListToObjectList(FileReader.openFileToSave("results"))));
         System.out.println("-----------------");
         System.out.println("1. Test");
         System.out.println("2.");

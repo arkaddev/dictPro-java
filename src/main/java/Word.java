@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Word {
@@ -34,4 +35,5 @@ public class Word {
         return (answers[0]*100) / (answers[0] + answers[1]);
 
     }
+
 }
