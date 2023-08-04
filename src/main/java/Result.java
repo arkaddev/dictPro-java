@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Result {
@@ -38,7 +39,21 @@ public class Result {
         this.date = date;
     }
 
+    public Result[] resultsListToArray(List listWithAllResults) {
+        List<Result> resultList = new ArrayList<>();
+        Result[] arrayOfResults = new  Result[listWithAllResults.size()];
 
+        for (int i = 0; i < listWithAllResults.size(); i++) {
+           String x = String.valueOf(listWithAllResults.get(i));
+           outcome = Integer.parseInt(x.substring(0,x.indexOf("%")));
+           name = x.substring(x.indexOf("%")+1,x.indexOf("@"));
+           date = x.substring(x.indexOf("@")+1,x.length());
+
+           arrayOfResults[i] = new Result(outcome,name,date);
+
+        }
+        return arrayOfResults;
+    }
 
     public List<Result> resultsListToObjectList(List listWithAllResults) {
         List<Result> resultList = new ArrayList<>();
@@ -64,6 +79,12 @@ public class Result {
         });
         return objectList;
     }
+
+
+
+
+
+
 
     @Override
     public String toString() {

@@ -10,7 +10,6 @@ public class Main {
 
         Result result = new Result();
 
-        System.out.println(result.sortObjectList(result.resultsListToObjectList(FileReader.openFileToSave("results"))));
         System.out.println("-----------------");
         System.out.println("1. Test");
         System.out.println("2.");
@@ -37,6 +36,10 @@ public class Main {
             case 2:
 
             case 3:
+                List<Result> resultList = result.sortObjectList(result.resultsListToObjectList(FileReader.openFileToSave("results")));
+                for (int i = 0; i<resultList.size();i++){
+                    System.out.println((i+1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());
+                }
                 break;
             default:
                 System.out.println("Nieprawidlowy numer");

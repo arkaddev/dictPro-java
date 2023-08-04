@@ -3,8 +3,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -88,5 +90,18 @@ class FileReaderTest {
         String path = "badPath";
 
         assertThrows(FileNotFoundException.class, () -> FileReader.openFileToSave(path));
+    }
+
+    @Test
+    void saveListToFile() {
+
+    }
+
+    @Test
+    void getDateAndTime() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+        assertEquals(simpleDateFormat.format(date), FileReader.getDateAndTime());
     }
 }
