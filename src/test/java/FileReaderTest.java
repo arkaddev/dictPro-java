@@ -1,8 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,6 +92,15 @@ class FileReaderTest {
         String path = "badPath";
 
         assertThrows(FileNotFoundException.class, () -> FileReader.openFileToSave(path));
+    }
+
+    @Test
+    void getName() {
+        InputStream inputStream = new ByteArrayInputStream("Jan".getBytes());
+        System.setIn(inputStream);
+
+        String output = FileReader.getName();
+        assertEquals("Jan", output);
     }
 
     @Test

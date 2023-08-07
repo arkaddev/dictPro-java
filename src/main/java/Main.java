@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    final static int amountOfQuestion = 10;
+    final static int amountOfQuestion = 20;
+
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Witaj w programie wordsApp 0.1");
 
@@ -28,17 +29,18 @@ public class Main {
 
                     System.out.println(Word.checkAnswer(arrayOfWords));
                 }
-
-                // System.out.println(Word.results(Word.goodBadAnswers));
-
+                // message about outcome
+                System.out.println("----------------------------------\n" + Word.results(Word.goodBadAnswers) + " %");
+                // save outcome to file
                 FileReader.saveListToFile("results", FileReader.openFileToSave("results"));
+
                 break;
             case 2:
 
             case 3:
                 List<Result> resultList = result.sortObjectList(result.resultsListToObjectList(FileReader.openFileToSave("results")));
-                for (int i = 0; i<resultList.size();i++){
-                    System.out.println((i+1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());
+                for (int i = 0; i < resultList.size(); i++) {
+                    System.out.println((i + 1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());
                 }
                 break;
             default:

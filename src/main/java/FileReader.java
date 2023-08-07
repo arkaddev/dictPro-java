@@ -75,6 +75,13 @@ public class FileReader {
         return statisticsList;
     }
 
+    public static String getName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj imie: ");
+        String name = scanner.nextLine();
+        return name;
+    }
+
     public static void saveListToFile(String nameOfFile, List<String> statisticsList) {
         try {
             FileWriter saveFile = new FileWriter(nameOfFile);
@@ -83,7 +90,7 @@ public class FileReader {
                 saveFile.write(name + "\n");
             }
 
-            saveFile.write(Word.results(Word.goodBadAnswers) + "% " + getDateAndTime());
+            saveFile.write(Word.results(Word.goodBadAnswers) + "%" + getName() + "@" + getDateAndTime());
             saveFile.close();
             System.out.println("Wynik zostal zapisany");
 
