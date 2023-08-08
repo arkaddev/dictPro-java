@@ -80,8 +80,8 @@ public class Result {
         return objectList;
     }
 
-    public void bestResults(int amount) throws FileNotFoundException {
-        List<Result> resultList = sortObjectList(resultsListToObjectList(FileReader.openFileToSave("results")));
+    public void bestResults(String nameOfFile, int amount) throws FileNotFoundException {
+        List<Result> resultList = sortObjectList(resultsListToObjectList(FileReader.openFileToSave(nameOfFile)));
 
         for (int i = 0; i < amount; i++) {
             System.out.println((i + 1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());

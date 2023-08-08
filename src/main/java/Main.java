@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     final static int amountOfQuestion = 20;
+    final static String fileWithWords = "slowa.txt";
+    final static String fileWithResults = "results";
 
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Witaj w programie wordsApp 0.1");
@@ -21,7 +23,7 @@ public class Main {
         int menu = scanner.nextInt();
         switch (menu) {
             case 1:
-                List<String> sortedList = FileReader.sortList(FileReader.readFile("slowa.txt"));
+                List<String> sortedList = FileReader.sortList(FileReader.readFile(fileWithWords));
 
                 for (int i = 0; i < amountOfQuestion; i++) {
                     String randomWord = FileReader.randomWord(sortedList);
@@ -32,14 +34,14 @@ public class Main {
                 // message about outcome
                 System.out.println("----------------------------------\n" + Word.results(Word.goodBadAnswers) + " %");
                 // save outcome to file
-                FileReader.saveListToFile("results", FileReader.openFileToSave("results"));
+                FileReader.saveListToFile(fileWithResults, FileReader.openFileToSave(fileWithResults));
                 // show best results
-                result.bestResults(10);
+                result.bestResults(fileWithResults, 10);
                 break;
             case 2:
                 break;
             case 3:
-                result.bestResults(100);
+                result.bestResults(fileWithResults, 100);
                 break;
             default:
                 System.out.println("Nieprawidlowy numer");
