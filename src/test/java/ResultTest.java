@@ -34,4 +34,8 @@ class ResultTest {
         assertEquals(20, resultList.get(1).getOutcome());
         assertEquals(10, resultList.get(2).getOutcome());
     }
+
+    @Test
+    void bestResults() {
+    }
 }

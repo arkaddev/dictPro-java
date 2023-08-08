@@ -41,15 +41,15 @@ public class Result {
 
     public Result[] resultsListToArray(List listWithAllResults) {
         List<Result> resultList = new ArrayList<>();
-        Result[] arrayOfResults = new  Result[listWithAllResults.size()];
+        Result[] arrayOfResults = new Result[listWithAllResults.size()];
 
         for (int i = 0; i < listWithAllResults.size(); i++) {
-           String x = String.valueOf(listWithAllResults.get(i));
-           outcome = Integer.parseInt(x.substring(0,x.indexOf("%")));
-           name = x.substring(x.indexOf("%")+1,x.indexOf("@"));
-           date = x.substring(x.indexOf("@")+1,x.length());
+            String x = String.valueOf(listWithAllResults.get(i));
+            outcome = Integer.parseInt(x.substring(0, x.indexOf("%")));
+            name = x.substring(x.indexOf("%") + 1, x.indexOf("@"));
+            date = x.substring(x.indexOf("@") + 1, x.length());
 
-           arrayOfResults[i] = new Result(outcome,name,date);
+            arrayOfResults[i] = new Result(outcome, name, date);
 
         }
         return arrayOfResults;
@@ -61,35 +61,38 @@ public class Result {
 
         for (int i = 0; i < listWithAllResults.size(); i++) {
             String x = String.valueOf(listWithAllResults.get(i));
-            outcome = Integer.parseInt(x.substring(0,x.indexOf("%")));
-            name = x.substring(x.indexOf("%")+1,x.indexOf("@"));
-            date = x.substring(x.indexOf("@")+1,x.length());
+            outcome = Integer.parseInt(x.substring(0, x.indexOf("%")));
+            name = x.substring(x.indexOf("%") + 1, x.indexOf("@"));
+            date = x.substring(x.indexOf("@") + 1, x.length());
 
-            resultList.add(new Result(outcome,name,date));
+            resultList.add(new Result(outcome, name, date));
         }
         return resultList;
     }
 
-    public List<Result> sortObjectList(List objectList){
+    public List<Result> sortObjectList(List objectList) {
         Collections.sort(objectList, new Comparator<Result>() {
             @Override
             public int compare(Result o1, Result o2) {
-                return Integer.compare(o2.outcome,o1.outcome);
+                return Integer.compare(o2.outcome, o1.outcome);
             }
         });
         return objectList;
     }
 
+    public void bestResults(int amount) throws FileNotFoundException {
+        List<Result> resultList = sortObjectList(resultsListToObjectList(FileReader.openFileToSave("results")));
 
-
-
-
+        for (int i = 0; i < amount; i++) {
+            System.out.println((i + 1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());
+        }
+    }
 
 
     @Override
     public String toString() {
-        return  outcome +
+        return outcome +
                 "% " + name +
-                " " + date +"\n";
+                " " + date + "\n";
     }
 }

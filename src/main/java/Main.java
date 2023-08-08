@@ -33,15 +33,13 @@ public class Main {
                 System.out.println("----------------------------------\n" + Word.results(Word.goodBadAnswers) + " %");
                 // save outcome to file
                 FileReader.saveListToFile("results", FileReader.openFileToSave("results"));
-
+                // show best results
+                result.bestResults(10);
                 break;
             case 2:
-
+                break;
             case 3:
-                List<Result> resultList = result.sortObjectList(result.resultsListToObjectList(FileReader.openFileToSave("results")));
-                for (int i = 0; i < resultList.size(); i++) {
-                    System.out.println((i + 1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " " + resultList.get(i).getDate());
-                }
+                result.bestResults(100);
                 break;
             default:
                 System.out.println("Nieprawidlowy numer");
