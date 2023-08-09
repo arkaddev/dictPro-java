@@ -43,6 +43,7 @@ public class FileReader {
             }
         }
         System.out.println("Posortowana lista zawiera: " + sortedList.size() + " wyrazow");
+        System.out.println("-----------------------------------------");
         return sortedList;
     }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    final static int amountOfQuestion = 20;
+    final static int amountOfQuestion = 25;
     final static String fileWithWords = "slowa.txt";
     final static String fileWithResults = "results";
 
@@ -15,8 +15,8 @@ public class Main {
 
         System.out.println("-----------------");
         System.out.println("1. Test");
-        System.out.println("2.");
-        System.out.println("3. Lista wynikow");
+        System.out.println("2. Lista wynikow");
+        System.out.println("3. Wyjscie");
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wybierz menu:");
@@ -39,9 +39,10 @@ public class Main {
                 result.bestResults(fileWithResults, 10);
                 break;
             case 2:
+                result.bestResults(fileWithResults, 100);
                 break;
             case 3:
-                result.bestResults(fileWithResults, 100);
+                System.out.println("Program zakonczony");
                 break;
             default:
                 System.out.println("Nieprawidlowy numer");
