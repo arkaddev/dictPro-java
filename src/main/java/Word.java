@@ -15,11 +15,18 @@ public class Word {
     }
 
 
-    public static String checkAnswer(String[] separatedWord) {
+    public static String scanner(String[] separatedWord){
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj znaczenie slowa: " + separatedWord[0]);
         String input = scanner.nextLine();
+
+        return input;
+    }
+
+    public static String checkAnswer(String[] separatedWord, String input) {
+
+
 
         if (separatedWord[1].equals(input)) {
             goodBadAnswers[0]++;

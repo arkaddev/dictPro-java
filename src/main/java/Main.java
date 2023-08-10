@@ -26,12 +26,14 @@ public class Main {
                 List<String> sortedList = FileReader.sortList(FileReader.readFile(fileWithWords));
 
                 for (int i = 0; i < amountOfQuestion; i++) {
+                    //random word
                     String randomWord = FileReader.randomWord(sortedList);
+                    //split word
                     String[] arrayOfWords = Word.splitWord(randomWord);
 
-                    System.out.println(Word.checkAnswer(arrayOfWords));
+                    System.out.println(Word.checkAnswer(arrayOfWords, Word.scanner(arrayOfWords)));
                 }
-                // message about outcome
+                // message about outcome in %
                 System.out.println("----------------------------------\n" + Word.results(Word.goodBadAnswers) + " %");
                 // save outcome to file
                 FileReader.saveListToFile(fileWithResults, FileReader.openFileToSave(fileWithResults));

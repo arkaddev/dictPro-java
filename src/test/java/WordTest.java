@@ -23,7 +23,7 @@ class WordTest {
     }
 
     @Test
-    void checkAnswerWhenGoodAnswer() {
+    void scanner() {
         String[] inputArray = new String[2];
         inputArray[0] = "yes";
         inputArray[1] = "tak";
@@ -31,7 +31,18 @@ class WordTest {
         InputStream inputStream = new ByteArrayInputStream("tak".getBytes());
         System.setIn(inputStream);
 
-        String output = Word.checkAnswer(inputArray);
+        String output = Word.scanner(inputArray);
+        String expectedOutput = "tak";
+
+        assertEquals(expectedOutput, output);
+    }
+    @Test
+    void checkAnswerWhenGoodAnswer() {
+        String[] inputArray = new String[2];
+        inputArray[0] = "yes";
+        inputArray[1] = "tak";
+
+        String output = Word.checkAnswer(inputArray,"tak");
         String expectedOutput = "ok";
 
         assertEquals(expectedOutput, output);
@@ -48,10 +59,7 @@ class WordTest {
         inputArray[0] = "yes";
         inputArray[1] = "tak";
 
-        InputStream inputStream = new ByteArrayInputStream("t".getBytes());
-        System.setIn(inputStream);
-
-        String output = Word.checkAnswer(inputArray);
+        String output = Word.checkAnswer(inputArray,"t");
         String expectedOutput = "zle, poprawna odpowiedz to : " + inputArray[1];
 
         assertEquals(expectedOutput, output);
