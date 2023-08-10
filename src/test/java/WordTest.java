@@ -37,6 +37,17 @@ class WordTest {
         assertEquals(expectedOutput, output);
     }
     @Test
+    void getPrompt() {
+        String[] inputArray = new String[2];
+        inputArray[0] = "yes";
+        inputArray[1] = "tak";
+
+        String output = Word.getPrompt(inputArray);
+        String expectedOutput = "---";
+
+        assertEquals(expectedOutput, output);
+    }
+    @Test
     void checkAnswerWhenGoodAnswer() {
         String[] inputArray = new String[2];
         inputArray[0] = "yes";

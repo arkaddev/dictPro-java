@@ -15,7 +15,7 @@ public class Word {
     }
 
 
-    public static String scanner(String[] separatedWord){
+    public static String scanner(String[] separatedWord) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj znaczenie slowa: " + separatedWord[0]);
@@ -24,9 +24,21 @@ public class Word {
         return input;
     }
 
+    public static String getPrompt(String[] separatedWord) {
+        String output = "";
+        char[] word = separatedWord[1].toCharArray();
+
+        for (int i = 0; i < word.length; i++) {
+            if (Character.isLetter(word[i])) {
+                output = output + "-";
+            } else {
+                output = output + " ";
+            }
+        }
+        return output;
+    }
+
     public static String checkAnswer(String[] separatedWord, String input) {
-
-
 
         if (separatedWord[1].equals(input)) {
             goodBadAnswers[0]++;
@@ -34,13 +46,11 @@ public class Word {
         }
         goodBadAnswers[1]++;
         return "zle, poprawna odpowiedz to : " + separatedWord[1];
-
     }
 
     public static int results(int[] answers) {
 
-        return (answers[0]*100) / (answers[0] + answers[1]);
-
+        return (answers[0] * 100) / (answers[0] + answers[1]);
     }
 
 }

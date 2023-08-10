@@ -30,6 +30,8 @@ public class Main {
                     String randomWord = FileReader.randomWord(sortedList);
                     //split word
                     String[] arrayOfWords = Word.splitWord(randomWord);
+                    //get prompt
+                    System.out.println(Word.getPrompt(arrayOfWords));
 
                     System.out.println(Word.checkAnswer(arrayOfWords, Word.scanner(arrayOfWords)));
                 }
