@@ -84,7 +84,7 @@ public class Result {
         List<Result> resultList = sortObjectList(resultsListToObjectList(FileReader.openFileToSave(nameOfFile)));
 
         for (int i = 0; i < amount; i++) {
-            System.out.println((i + 1) + ". " + resultList.get(i).getOutcome() + "% " + resultList.get(i).getName() + " \t" + resultList.get(i).getDate());
+               System.out.println(String.format("%-5s %-5s %-15s %-5s",((i + 1) + "."),(resultList.get(i).getOutcome()+"%"), resultList.get(i).getName(), resultList.get(i).getDate()));
         }
     }
 
