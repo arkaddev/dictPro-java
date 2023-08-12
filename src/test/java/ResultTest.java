@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +37,22 @@ class ResultTest {
     }
 
     @Test
-    void bestResults() {
+    void bestResults() throws FileNotFoundException {
+        List<Result> resultList = new ArrayList<>();
+        resultList.add(new Result(20,"Jan","02-08-2023 19:34:18"));
+        resultList.add(new Result(10,"Jan","02-08-2023 19:34:18"));
+        resultList.add(new Result(30,"Jan","02-08-2023 19:34:18"));
+
+
+        OutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        Result result = new Result();
+        result.bestResults("test",5);
+
+        String expected = "";
+        String output = outputStream.toString().trim();
+
+        assertEquals(expected, output);
     }
 }
