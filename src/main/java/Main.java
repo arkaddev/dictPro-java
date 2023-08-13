@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     final static int amountOfQuestion = 25;
-    final static String fileWithWords = "slowa.txt";
+    final static String fileWithWords = "words/slowa.txt";
     final static String fileWithResults = "results";
 
     public static void main(String[] args) throws FileNotFoundException {
+FileReader.chooseFileFromDirectory();
+
         System.out.println("Witaj w programie wordsApp 0.1");
 
         Result result = new Result();

@@ -48,7 +48,7 @@ class ResultTest {
         System.setOut(new PrintStream(outputStream));
 
         Result result = new Result();
-        result.bestResults("test",5);
+        result.bestResults("/test",5);
 
         String expected = "";
         String output = outputStream.toString().trim();
