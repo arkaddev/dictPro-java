@@ -117,7 +117,6 @@ public class FileReader {
            for(int i = 0; i< files.length; i++){
                System.out.println(files[i]);
             }
-
         }
     }
 }

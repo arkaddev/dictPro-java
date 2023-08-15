@@ -9,7 +9,7 @@ public class Main {
     final static String fileWithResults = "results";
 
     public static void main(String[] args) throws FileNotFoundException {
-FileReader.chooseFileFromDirectory();
+        FileReader.chooseFileFromDirectory();
 
         System.out.println("Witaj w programie wordsApp 0.1");
 

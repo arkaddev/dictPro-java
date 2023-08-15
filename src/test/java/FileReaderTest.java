@@ -115,4 +115,8 @@ class FileReaderTest {
 
         assertEquals(simpleDateFormat.format(date), FileReader.getDateAndTime());
     }
+
+    @Test
+    void chooseFileFromDirectory() {
+    }
 }
