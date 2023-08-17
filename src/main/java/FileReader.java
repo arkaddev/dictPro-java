@@ -107,16 +107,19 @@ public class FileReader {
         return simpleDateFormat.format(date);
     }
 
-    public static void chooseFileFromDirectory() {
+    public static List<String> chooseFileFromDirectory() {
+        List<String> listOfFiles = new ArrayList<>();
+
         String directoryPath = "words";
         File directory = new File(directoryPath);
 
-        if(directory.exists() && directory.isDirectory()){
+        if (directory.exists() && directory.isDirectory()) {
             File[] files = directory.listFiles();
 
-           for(int i = 0; i< files.length; i++){
-               System.out.println(files[i]);
+            for (int i = 0; i < files.length; i++) {
+                listOfFiles.add(String.valueOf(files[i]));
             }
         }
+        return listOfFiles;
     }
 }
